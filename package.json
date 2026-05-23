@@ -39,7 +39,7 @@
     "url": "https://github.com/afdpfrss/document-agent-mcp/issues"
   },
   "engines": {
-    "node": ">=18.17"
+    "node": ">=22"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
