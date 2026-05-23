@@ -1,10 +1,10 @@
 {
-  "name": "document-agent-mcp",
+  "name": "md-agent-mcp",
   "version": "0.1.0",
   "description": "MCP server for searching and reading Markdown documents from any storage. Storage-agnostic, staged-disclosure design.",
   "type": "module",
   "bin": {
-    "document-agent-mcp": "dist/index.js"
+    "md-agent-mcp": "dist/index.js"
   },
   "files": [
     "dist",
@@ -28,7 +28,16 @@
     "claude",
     "cursor"
   ],
+  "author": "afdpfrss",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afdpfrss/document-agent-mcp.git"
+  },
+  "homepage": "https://github.com/afdpfrss/document-agent-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/afdpfrss/document-agent-mcp/issues"
+  },
   "engines": {
     "node": ">=18.17"
   },

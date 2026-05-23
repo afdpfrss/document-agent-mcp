@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ["18.17", "20", "22"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      # Verify the tarball-installed CLI actually runs. This catches problems
+      # that only show up after packaging (missing files, bad shebang, ESM
+      # resolution surprises) — not the source-tree dev loop.
+      - name: Smoke test packaged tarball
+        run: |
+          tgz=$(npm pack 2>/dev/null | tail -1)
+          sandbox=$(mktemp -d)
+          mv "$tgz" "$sandbox/"
+          cd "$sandbox"
+          npm init -y >/dev/null
+          npm install "./$tgz" >/dev/null
+          ./node_modules/.bin/md-agent-mcp --version

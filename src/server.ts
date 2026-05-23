@@ -10,7 +10,7 @@ import { getSections, listCategories, searchDocuments } from "./tools.js";
 
 export function createServer(corpus: Corpus): McpServer {
   const server = new McpServer({
-    name: "document-agent-mcp",
+    name: "md-agent-mcp",
     version: "0.1.0",
   });
 

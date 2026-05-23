@@ -1,4 +1,4 @@
-# document-agent-mcp
+# md-agent-mcp
 
 A Model Context Protocol (MCP) server that lets any MCP client — Claude
 Desktop / Cursor / Cline / Zed / Continue / etc. — search and read
@@ -21,7 +21,7 @@ Markdown documents stored in a local folder.
 No install needed — run via `npx`:
 
 ```sh
-npx document-agent-mcp --root /path/to/your/markdown/folder
+npx md-agent-mcp --root /path/to/your/markdown/folder
 ```
 
 ## Configuring your MCP client
@@ -39,7 +39,7 @@ the folder containing your `.md` files.
   "mcpServers": {
     "documents": {
       "command": "npx",
-      "args": ["-y", "document-agent-mcp", "--root", "/path/to/your/markdown"]
+      "args": ["-y", "md-agent-mcp", "--root", "/path/to/your/markdown"]
     }
   }
 }
@@ -48,7 +48,7 @@ the folder containing your `.md` files.
 ### Cursor / Cline / Continue / Zed
 
 The shape is the same — set `command` to `npx` and `args` to
-`["-y", "document-agent-mcp", "--root", "/path/to/your/markdown"]`. See
+`["-y", "md-agent-mcp", "--root", "/path/to/your/markdown"]`. See
 your client's MCP docs for the exact config file location.
 
 ## Tools exposed
@@ -108,10 +108,10 @@ If a field is missing from the frontmatter, sensible fallbacks are used:
 ## CLI options
 
 ```
-document-agent-mcp [--root <dir>]
+md-agent-mcp [--root <dir>]
 
   --root <dir>   Root directory containing .md files.
-                 Defaults to $DOCUMENT_AGENT_ROOT.
+                 Defaults to $MD_AGENT_ROOT.
 ```
 
 The corpus is built in-memory at startup. Restart the MCP server (or the
